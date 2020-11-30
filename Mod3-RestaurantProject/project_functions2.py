@@ -14,6 +14,10 @@ import requests
 ## yelp data functions
 
 def get_businesses(location, term, api_key):
+    '''Takes in a location, term, and api key as a string,
+    uses them as parameters to perform a Yelp Business Search
+    and returns a list containing the results.'''
+    
     headers = {'Authorization': 'Bearer %s' % api_key}
     url = 'https://api.yelp.com/v3/businesses/search'
 
@@ -39,6 +43,9 @@ def get_businesses(location, term, api_key):
 
 
 def clean_yelp_df(df):
+    '''Takes a pandas data frame of data obtained from Yelp
+    and unpacks it for ananlysis by dropping columns, seperating nested
+    values, and creating dummy variables. '''
     
     # hide some columns
     hide = ['name', 'id', 'alias', 'image_url', 'url', 'is_closed', 'display_phone',
@@ -97,6 +104,8 @@ def clean_yelp_df(df):
     return df
 
 def plot_my_conf_matrix(cm, ax):
+    '''Takes in an sklearn.metrics confusion matrix, and axis number
+    and displays an sns heatmap of the confusion matrix.'''
     sns.heatmap(cm, annot=True, fmt=".3f", linewidths=.5, cmap='Blues_r', ax=ax)
     ax.set_xlabel('Predicted Label', fontsize=10)
     ax.set_ylabel('Actual Label', fontsize=10)
@@ -104,11 +113,18 @@ def plot_my_conf_matrix(cm, ax):
     
     
 def plot_my_roc_curve(clf, X_test, y_test, ax):
+    '''Takes in a classifier, training data, and axis numbers.
+    An iterable way to display a unique sklearn.metrics 
+    ROC curve for a different classifier on the same data.'''
     mx.plot_roc_curve(clf, X_test, y_test, alpha=1, lw=2, ax=ax)
     ax.set_title('ROC Curve/AUC Score',fontsize=12)
     
     
 def base_model(clf, X, y, test_size, random_state):
+    '''Runs a base model using sklearn.model_selection
+    train_test_split(), and prints the classification report
+    training scores, and displays the confusion matrix and 
+    ROC curve.'''
 
     print('\nBasic Model with Train, Test, Split for:', clf, '\n')
     
@@ -127,6 +143,10 @@ def base_model(clf, X, y, test_size, random_state):
     
     
 def plot_my_cross_val_roc_curve(clf, X, y, cv):
+    '''Runs a cross validation model given a classifier,
+    X, y data, and cv parameters.
+    Returns a ROC curve with plot are AUC results for
+    each fold in the cross validation.'''
     
     
     fig1 = plt.figure(figsize=[8, 12])
@@ -160,6 +180,10 @@ def plot_my_cross_val_roc_curve(clf, X, y, cv):
     
 
 def cv_model_scores(clf, X, y, cv, num):
+    '''Runs cross validation model using a given classifier,
+    X, y data, cv parameters and the classifier id number.
+    Displays a pandas dataframe with the model scores. It
+    returns the mean scores of the model.'''
     
     scores = pd.DataFrame()
     scores['Accuracy'] = ms.cross_val_score(clf, X, y, cv=cv, scoring='accuracy')
@@ -176,6 +200,11 @@ def cv_model_scores(clf, X, y, cv, num):
 
 
 def run_cross_val_model(clf, X, y, cv):
+    '''Runs a cross validation model given a classifier,
+    X, y data, and cv parameters.
+    Returns a pandas dataframe with model scores.
+    Returns a ROC curve with plot are AUC results for
+    each fold in the cross validation.'''
 
     scores = pd.DataFrame()
     scores['Accuracy'] = ms.cross_val_score(clf, X, y, cv=cv, scoring='accuracy')
@@ -201,6 +230,11 @@ def run_cross_val_model(clf, X, y, cv):
 import imblearn.over_sampling as imbos
 
 def base_model_smote(clf, X, y, test_size, random_state):
+        '''Runs a base model using sklearn.model_selection
+    train_test_split() and imblearn.over_sampling SMOTE(), 
+    and prints the classification report training scores, 
+    and displays the confusion matrix and 
+    ROC curve.'''
 
     print('\nBasic Model with Train, Test, Split with SMOTE for:', clf, '\n')
     
@@ -223,6 +257,10 @@ def base_model_smote(clf, X, y, test_size, random_state):
 
 
 def plot_my_cross_val_roc_curve_smote(clf, X, y, cv):
+    '''Runs a cross validation model given a classifier,
+    X, y data, and cv parameters using imblearn SMOTE.
+    Returns a ROC curve with plot are AUC results for
+    each fold in the cross validation.'''
     
     smote = imbos.SMOTE(random_state=1)
     
@@ -263,6 +301,11 @@ def plot_my_cross_val_roc_curve_smote(clf, X, y, cv):
     plt.show()
     
 def run_cross_val_model_smote(clf, X, y, cv):
+    '''Runs a cross validation model given a classifier,
+    X, y data, and cv parameters using imblearn SMOTE.
+    Returns a pandas dataframe with model scores.
+    Returns a ROC curve with plot are AUC results for
+    each fold in the cross validation.'''
 
     scores = pd.DataFrame()
     scores['Accuracy'] = ms.cross_val_score(clf, X, y, cv=cv, scoring='accuracy')
@@ -285,6 +328,10 @@ def run_cross_val_model_smote(clf, X, y, cv):
     print('=========================================================================================================')
     
 def feature_importance(clf, importances, X):
+    '''Takes in a classifier, the results of sklearn feature_importances_
+    for the classifier, and X data to display a data frame with the top 15
+    more important features for that model in pandas dataframe as well as the top 
+    10 features in an sns countplot.'''
 
     std = np.std([tree.feature_importances_ for tree in clf.estimators_],
              axis=0)
