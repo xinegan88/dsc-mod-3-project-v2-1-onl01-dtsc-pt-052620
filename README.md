@@ -3,6 +3,14 @@ In this project, I outline a strategy for building a competitive restaurant in N
 
 ## Navigating the Repo
 In the list of files below, choose the folder  ‘Mod3-Restaurant Project’
+| Mod3-Restaurant Project    | File Description              |
+|:---------------------------|:------------------------------|
+| /data                      |  a folder containing various CSV data files used in this project |
+| /images.                   | a folder containing various images used in this project          |
+| Part1_ObtainingScrubbing.jpynb | a jupyter notebook of the process of obtaining and scrubbing the data for this project  |
+| Part2_EDA.jpynb                | a jupyter notebook of the process of exploratory data analysis for this project  |
+| Part3_Modeling.jpynb           | a jupyter notebook of the various models created for this project, with results  |
+| NYCRestaurantPresentation.pdf  | a high-level overview of the results of this project  |
 
 
 ## The Data
