@@ -42,7 +42,8 @@ For the purposes of this project, I only looked at independent restaurants that 
 6. I analyzed the feature importances and generated a list of the best features for my recommendations.
 
 ## The Results
-Of all the scores, precision is our most important metric. This is because the cost of false positives in our business case in greater than the cost of false negatives. A false negative may narrow the recommendation, but false positives could make the recommendations too broad and create a waste of resources.
+Of all the scores, precision is our most important metric. This is because the cost of false positives in our business case in greater than the cost of false negatives. A false negative may narrow the recommendation, but false positives could make the recommendations too broad and create a waste of resources.        
+
 ![roc curve](Mod3-RestaurantProject/images/ROC.png)
 
 ### The Best Model
@@ -54,8 +55,6 @@ Based on the model and the EDA, I can make the following recommendations:
 The most important features the model identified were related to the restaurant categories. It seems bakeries,  Japanese restaurants, and Caribbean restaurants are high on the list. In addition, traditional American, diner, and breakfast places are also well represented. We also see that gluten-free appears among the top 15 features indicating that restaurants with more gluten-free items of any concept perform well. The presence of reservations on this list indicates that the sit-down concepts are more likely to have a high rating.       
 ![restaurants by category](Mod3-RestaurantProject/images/restaurant_by_category.png)
 ![restaurants by category](Mod3-RestaurantProject/images/top10.png)
-
-
 
 ### Location
 * Above average restaurants seem to be clustered in certain neighborhoods, namely: These areas have medium population density. 
