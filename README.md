@@ -4,16 +4,6 @@ In this project, I outline a strategy for building a competitive restaurant in N
 ## Navigating the Repo
 In the list of files below, choose the folder  ‘Mod3-Restaurant Project’
 
-| Mod3-Restaurant Project    | File Description              |
-|: --------------------------|:------------------------------|
-| /data                      |  a folder containing various CSV data files used in this project.               |
-| /images.                   | a folder containing various images used in this project                                     |
-| Part1_ObtainingScrubbing.jpynb | a jupyter notebook of the process of obtaining and scrubbing the data for this project  |
-| Part2_EDA.jpynb | a jupyter notebook of the process of exploratory data analysis for this project  |
-| Part3_Modeling.jpynb | a jupyter notebook of the various models created for this project, with results  |
-| NYCRestaurantPresentation.pdf | a high-level overview of the results of this project  |
-
-
 
 ## The Data
 The data collected for this project came from Yelp Fusion API Business Search and NYC Open Data. The Yelp data provided a list of over 3000+ restaurant observations in Manhattan. Yelp also provided our target feature, rating, as well as information about the restaurant’s location, price, category, the amount of reviews it has received, and the kinds of transactions you make (reservation, delivery, and pickup).  NYC OpenData provided the names of neighborhoods, their NTA (Neighborhood Tabulation Area) identifier, as well as population demographics. 
