@@ -43,7 +43,7 @@ For the purposes of this project, I only looked at independent restaurants that 
 
 ## The Results
 Of all the scores, precision is our most important metric. This is because the cost of false positives in our business case in greater than the cost of false negatives. A false negative may narrow the recommendation, but false positives could make the recommendations too broad and create a waste of resources. 
-![roc curve](images/roc.png)
+![roc curve](Mod3-RestaurantProject/images/roc.png)
 
 ### The Best Model
 The best model was Model 8. This model was created using the original Random Forest Classifier, with the hyper parameters suggested by RandomSearchCV.
@@ -52,20 +52,29 @@ Based on the model and the EDA, I can make the following recommendations:
 
 ### Concept
 The most important features the model identified were related to the restaurant categories. It seems bakeries,  Japanese restaurants, and Caribbean restaurants are high on the list. In addition, traditional American, diner, and breakfast places are also well represented. We also see that gluten-free appears among the top 15 features indicating that restaurants with more gluten-free items of any concept perform well. The presence of reservations on this list indicates that the sit-down concepts are more likely to have a high rating.
-![restaurants by category](images/restaurants_by_category.png)
+![restaurants by category](Mod3-RestaurantProject/images/restaurants_by_category.png)
 
 ### Location
 * Above average restaurants seem to be clustered in certain neighborhoods, namely: These areas have medium population density. 
 * Above average restaurants also have a high number of reviews. A higher amount of reviews suggests that more people are visiting that restaurant.
 * This suggests that a there is an entourage effect — being in proximity to other restaurants with a high rating means more foot-traffic. More diners will also see your restaurant and might want to try yours.
-![maps](images/maps.png)
+![maps](Mod3-RestaurantProject/images/maps.png)
 
 ### Price
 * Price is an important feature due to perceived value. Finding the right price is about balancing costs with the quality of food that you want to provide. Developing a concept that has the right price should be gauged by the neighborhood. In both average and above average restaurants, price tiers two and three are over represented. However, in above average restaurants, price tier three appears more frequently than in restaurants that are not above average. This suggests that customers still perceive more expensive food as being worth the money sometimes. This indicates that it might be a good idea to do further research with menu scraping to determine what price point is most appropriate based on neighborhood and concept.
-![restaurants by category](images/restaurants_by_category.png)
+![restaurants by category](Mod3-RestaurantProject/images/restaurants_by_category.png)
 
 
+## Future Work
+### Addressing the top two levels of the pyramid:
+* Performing sentiment analysis to assess customer values as well as positive and negative experiences.
+* Obtaining additional data to find broader trends to make more precise recommendations.
+* Obtaining additional data to explore options that encourage brand loyalty.
 
+### Assessing the impact of Covid-19:
+* Collecting data regarding patterns in consumer habits during the times of Covid-19.
+* Using time-series to predict how these patterns will evolve going forward.
 
+Thanks for taking a look!
 
 
